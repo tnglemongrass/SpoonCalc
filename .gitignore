@@ -15,9 +15,15 @@ logs/
 # Python byproducts
 __pycache__
 
-# ??
+# clutter from macOS Finder
 .DS_store
 
 # misc clutter
 *.png
 *.zip
+
+# python virtual environment
+venv/
+
+# temp dir from building the android app
+.buildozer/

@@ -49,3 +49,21 @@ Warning! This feature does not check for overwrites, so if the database is empty
 A previously exported database of logs may be re-imported. The user may provide a custom filename (as a relative path from default android internal storage). The app supplies a default filename which is identical to the one used for exporting.
 
 When importing duplicates are skipped, such that importing the same export twice won't lead to duplicates of every logged activity.
+
+# Build the Android app
+
+Run these commands:
+
+```
+python -m venv venv
+source ./venv/bin/activate
+pip install kivy
+pip install buildozer
+pip install kivy_garden
+pip install setuptools
+sudo apt install cython3
+sudo apt install openjdk-17-jdk
+buildozer android debug
+```
+
+The built apk can be found in ./.buildozer/.
