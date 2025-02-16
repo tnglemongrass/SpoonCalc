@@ -66,4 +66,67 @@ sudo apt install openjdk-17-jdk
 buildozer android debug
 ```
 
-The built apk can be found in ./.buildozer/.
+The built apk can be found in ./bin/.
+
+### starting over (within a github codespace)...
+
+rm -rf venv
+rm -rf ~/.buildozer
+rm -rf .buildozer
+
+change in buildozer.spec to
+android.accept_sdk_license = True
+
+python -m venv venv
+source venv/bin/activate
+
+pip install buildozer
+pip install cython
+
+buildozer android debug
+
+
+## Android packaging with python-for-android
+
+https://kivy.org/doc/stable/guide/packaging-android.html#packaging-with-python-for-android
+
+
+./sdkmanager "platforms;android-27" --sdk_root=~/android-sdk/
+
+~/android-sdk/cmdline-tools/bin $ ./sdkmanager "build-tools;28.0.2" --sdk_root=~/android-sdk/
+
+sudo apt install android-sdk
+export ANDROID_HOME=~/.buildozer/android/android-sdk/
+
+
+
+## build the apk (Ubuntu 24.04)
+
+buildozer setup (note this requires libtinfo6 instead of 5):
+```
+sudo apt update
+sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo6 cmake libffi-dev libssl-dev
+python -m venv venv
+source venv/bin/activate
+pip3 install --upgrade Cython==0.29.33 virtualenv
+```
+
+These might be needed as well, note that this is `python3.12-venv` (instead of `python3-virtualenv`):
+```
+sudo apt install build-essential git unp python3-pip python3-setuptools python3.12-venv
+```
+
+create the venv and install buildozer inside:
+```
+python -m venv venv
+source venv/bin/activate
+pip install setuptools
+pip install buildozer
+```
+
+build the apk:
+```
+buildozer android debug
+```
+
+The build apk can be found in `./bin/`.
