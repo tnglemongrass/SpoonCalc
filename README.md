@@ -130,3 +130,8 @@ buildozer android debug
 ```
 
 The build apk can be found in `./bin/`.
+
+## Pipeline
+
+adapted from
+https://gist.github.com/zl475505/25245e8d28b13b3273e8bae1a63c4af2?permalink_comment_id=5144263#gistcomment-5144263
